@@ -1,3 +1,4 @@
-# Auto Configure
+# 自动配置文件
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.example.starter.mybatis.boot.autoconfigure.MybatisAutoConfiguration
+com.example.starter.mybatis.boot.autoconfigure.MybatisAutoConfiguration,\
+com.example.starter.mybatis.boot.autoconfigure.MyDataSourceAutoConfiguration

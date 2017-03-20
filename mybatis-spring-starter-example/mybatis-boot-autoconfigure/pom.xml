@@ -31,6 +31,12 @@
             <version>1.5.1.RELEASE</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.9</version>
+        </dependency>
+
         <!-- Optional dependencies -->
         <dependency>
             <groupId>org.mybatis</groupId>

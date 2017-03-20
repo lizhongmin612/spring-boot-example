@@ -27,7 +27,7 @@ public class SampleApplication implements CommandLineRunner {
 
 	public void run(String... strings) throws Exception {
 		Car car = new Car();
-		car.setBrandId(3);
+		car.setBrandId(4);
 		car.setInventory(100);
 		carMapper.insert(car);
 	}
