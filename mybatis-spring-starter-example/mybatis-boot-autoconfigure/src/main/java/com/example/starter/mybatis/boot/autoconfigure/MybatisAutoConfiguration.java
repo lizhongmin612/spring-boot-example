@@ -27,6 +27,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.mapper.ClassPathMapperScanner;
 import org.mybatis.spring.mapper.MapperFactoryBean;
+import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
@@ -90,6 +91,7 @@ public class MybatisAutoConfiguration {
 
 	private final List<ConfigurationCustomizer> configurationCustomizers;
 
+
 	public MybatisAutoConfiguration(MybatisProperties properties,
 			ObjectProvider<Interceptor[]> interceptorsProvider,
 			ResourceLoader resourceLoader,
@@ -152,6 +154,15 @@ public class MybatisAutoConfiguration {
 		return factory.getObject();
 	}
 
+//	@Bean
+//	@ConditionalOnMissingBean
+	public MapperScannerConfigurer mapperScannerConfigurer() throws Exception{
+		MapperScannerConfigurer configurer = new MapperScannerConfigurer();
+		configurer.setBasePackage(this.properties.getMapperBasePackage());
+		configurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
+		return configurer;
+	}
+
 	@Bean
 	@ConditionalOnMissingBean
 	public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
@@ -162,6 +173,8 @@ public class MybatisAutoConfiguration {
 			return new SqlSessionTemplate(sqlSessionFactory);
 		}
 	}
+
+
 
 	/**
 	 * This will just scan the same base package as Spring Boot does. If you want

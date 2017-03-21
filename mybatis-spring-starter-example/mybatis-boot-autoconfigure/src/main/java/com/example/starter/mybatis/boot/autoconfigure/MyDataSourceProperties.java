@@ -15,7 +15,6 @@ import javax.sql.DataSource;
  * @author <a href="mailto:lzm8285@163.com">Li Zhongmin</a>
  * @version 1.0 2017年03月20日 11:37:00
  */
-@Component
 @PropertySource("classpath:dataSource.properties") //指定配置文件位置
 @ConfigurationProperties
 public class MyDataSourceProperties {
